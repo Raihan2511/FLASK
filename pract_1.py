@@ -24,7 +24,7 @@ def results(score):
     if score<=60:
         result="fail"
     else:
-        result="pass"
+        result="success"
     return redirect(url_for(result,score=score)) 
 
 if __name__=='__main__':

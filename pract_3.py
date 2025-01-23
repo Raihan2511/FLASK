@@ -12,8 +12,8 @@ def welcome():
 
 @app.route('/success/<int:score>')
 def success(score):
-    res="pass" if score>=60 else "fail"
-    return render_template('result.html',result=res,score=score)
+    # res="pass" if score>=60 else "fail"
+    return render_template('result.html',result=score)
 
 
 @app.route('/fail/<int:score>')
@@ -38,12 +38,8 @@ def submit():
         english=float(request.form['english'])
         social=float(request.form['social'])
         total_score=science+maths+english+social
-    res=""
-    if total_score<=60:
-        res="fail"
-    else:
-        res="success"
-    return redirect(url_for(res,score=total_score))
+    
+    return redirect(url_for("success",score=total_score))
         
 
 
